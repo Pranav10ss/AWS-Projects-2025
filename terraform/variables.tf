@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Project name for resource naming"
   type        = string
-  default     = "private-GPT"
+  default     = "private-gpt"
 }
 
 variable "knowledge_base_id" {

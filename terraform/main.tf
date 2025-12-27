@@ -62,11 +62,12 @@ resource "aws_iam_role_policy" "lambda_policy" {
 
 # Lambda Function to query Bedrock Knowledge base
 resource "aws_lambda_function" "kb_query" {
-  filename         = "lambda_function.zip"
+  filename         = data.archive_file.lambda_zip.output_path
+  source_code_hash = data.archive_file.lambda_zip.output_base64sha256
+
   function_name    = "${var.project_name}-kb-query"
   role             = aws_iam_role.lambda_role.arn
   handler          = "index.handler"
-  source_code_hash = filebase64sha256("lambda_function.zip")
   runtime          = "python3.11"
   timeout          = 30
 
