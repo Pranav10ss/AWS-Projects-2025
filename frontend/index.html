@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS SAP-C02 Exam Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 AWS Solutions Architect Professional Exam Assistant</h1>
+            <p class="subtitle">Ask questions about the SAP-C02 exam</p>
+        </header>
+        
+        <div class="chat-container">
+            <div id="chatMessages" class="chat-messages"></div>
+            
+            <div class="input-container">
+                <textarea 
+                    id="queryInput" 
+                    placeholder="Ask a question about AWS SAP-C02 exam..."
+                    rows="3"
+                ></textarea>
+                <button id="sendButton" onclick="sendQuery()">
+                    <span id="buttonText">Send</span>
+                    <span id="buttonLoader" class="loader" style="display: none;"></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="examples">
+            <p><strong>Example questions:</strong></p>
+            <button class="example-btn" onclick="setQuery('What are the key domains covered in the SAP-C02 exam?')">
+                Key exam domains
+            </button>
+            <button class="example-btn" onclick="setQuery('What is the passing score for the AWS Solutions Architect Professional exam?')">
+                Passing score
+            </button>
+            <button class="example-btn" onclick="setQuery('What topics are covered in the Design for Organizational Complexity domain?')">
+                Organizational Complexity topics
+            </button>
+        </div>
+    </div>
+    
+    <!-- Load generated config first -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
