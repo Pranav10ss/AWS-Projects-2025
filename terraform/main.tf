@@ -39,21 +39,21 @@ resource "aws_iam_role_policy" "lambda_policy" {
     Version = "2012-10-17"
     Statement = [
       {
+        Effect = "Allow"
         Action = [
           "bedrock:Retrieve",
           "bedrock:RetrieveAndGenerate",
           "bedrock:InvokeModel"
         ]
-        Effect   = "Allow"
         Resource = "*"
       },
       {
+        Effect = "Allow"
         Action = [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
           "logs:PutLogEvents"
         ]
-        Effect   = "Allow"
         Resource = "arn:aws:logs:*:*:*"
       }
     ]
@@ -65,11 +65,11 @@ resource "aws_lambda_function" "kb_query" {
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
-  function_name    = "${var.project_name}-kb-query"
-  role             = aws_iam_role.lambda_role.arn
-  handler          = "index.handler"
-  runtime          = "python3.11"
-  timeout          = 30
+  function_name = "${var.project_name}-kb-query"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = "index.handler"
+  runtime       = "python3.11"
+  timeout       = 30
 
   environment {
     variables = {

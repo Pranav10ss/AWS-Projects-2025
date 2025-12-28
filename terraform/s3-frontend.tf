@@ -68,6 +68,16 @@ resource "aws_s3_object" "styles_css" {
   etag         = filemd5("${path.module}/../frontend/styles.css")
 }
 
+resource "aws_s3_object" "config_js" {
+  bucket       = aws_s3_bucket.frontend.id
+  key          = "config.js"
+  source       = "${path.module}/../frontend/config.js"
+  content_type = "application/javascript"
+
+  depends_on = [local_file.frontend_config]
+}
+
+
 # create a CloudFront distribution for the S3 bucket for caching at edge locations
 resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
