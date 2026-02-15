@@ -1,0 +1,39 @@
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/*.tfvars
+terraform/lambda_function.zip
+
+# Python
+lambda/__pycache__/
+lambda/*.pyc
+lambda/*.pyo
+lambda/*.egg-info/
+lambda/dist/
+lambda/build/
+
+# Lambda dependencies
+lambda/boto3/
+lambda/botocore/
+lambda/bin/
+lambda/certifi/
+lambda/charset_normalizer/
+lambda/dateutil/
+lambda/idna/
+lambda/jmespath/
+lambda/requests/
+lambda/s3transfer/
+lambda/six.py
+lambda/urllib3/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
